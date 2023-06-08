@@ -27,16 +27,8 @@ Under Existing role, choose the IAM role that you created.
 
 5.    Under Code, Code source, copy and paste the following code into the editor pane in the code editor: (lambda_function). This code stops the EC2 instances that you identify.
 
-Example function code to stop EC2 instances
+Example function code to stop EC2 instances(ec2stop_boto3.py)
 
-import boto3
-region = 'us-west-1'
-instances = ['i-12345cb6de4f78g9h', 'i-08ce9b2d7eccf6d26']
-ec2 = boto3.client('ec2', region_name=region)
-
-def lambda_handler(event, context):
-    ec2.stop_instances(InstanceIds=instances)
-    print('stopped your instances: ' + str(instances))
 Important: For region, replace "us-west-1" with the AWS Region that your instances are in. For instances, replace the example EC2 instance IDs with the IDs of the specific instances that you want to stop and start.
 
 6.    Choose Deploy.
