@@ -16,6 +16,7 @@ Important: When attaching a permissions policy to Lambda, make sure that you cho
 <img width="933" alt="Screenshot 2023-06-08 at 19 23 16" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/446d380e-6a52-4b75-99dc-1d6db30707fd">
 
 Create Lambda functions that stop and start your EC2 instances
+
 1.    Open the Lambda console, and then choose Create function.
 
 2.    Choose Author from scratch.
@@ -29,6 +30,11 @@ Under Execution role, choose Use an existing role.
 Under Existing role, choose the IAM role that you created.
 
 4.    Choose Create function.
+
+<img width="1160" alt="Screenshot 2023-06-08 at 19 22 25" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/7c9425b2-750f-42d4-9f95-4fd4e585d46e">
+
+
+<img width="936" alt="Screenshot 2023-06-08 at 19 22 10" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/33b47056-883a-47b7-bdc8-de1a0718abd2">
 
 5.    Under Code, Code source, copy and paste the following code into the editor pane in the code editor: (lambda_function). This code stops the EC2 instances that you identify.
 
