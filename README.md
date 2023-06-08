@@ -10,6 +10,11 @@ Create an IAM policy and execution role for your Lambda function
 
 Important: When attaching a permissions policy to Lambda, make sure that you choose the IAM policy that you just created.
 
+<img width="933" alt="Screenshot 2023-06-08 at 19 23 38" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/fd1a6644-465e-4a06-9985-781190d61c20">
+
+
+<img width="933" alt="Screenshot 2023-06-08 at 19 23 16" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/446d380e-6a52-4b75-99dc-1d6db30707fd">
+
 Create Lambda functions that stop and start your EC2 instances
 1.    Open the Lambda console, and then choose Create function.
 
