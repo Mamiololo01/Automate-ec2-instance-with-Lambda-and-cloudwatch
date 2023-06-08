@@ -73,6 +73,13 @@ AWS Management Console
 
 You can check the status of your EC2 instances before and after testing to confirm that your functions work as expected.
 
+<img width="1152" alt="Screenshot 2023-06-08 at 19 17 45" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/50c905ae-743b-4c90-bcb1-0b527038cc4c">
+
+<img width="1257" alt="Screenshot 2023-06-08 at 19 18 09" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/8a378ec2-2841-49ff-a629-8af91937d04e">
+
+<img width="1224" alt="Screenshot 2023-06-08 at 19 18 33" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/40cb4e19-6914-49dd-940d-058097296a2d">
+
+
 AWS CloudTrail
 
 You can use CloudTrail to check for events to confirm that the Lambda function stopped or started the EC2 instance.
