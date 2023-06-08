@@ -2,30 +2,10 @@
 Step by step guides to automating ec2 instances to start and stop using Lambda and event notification using cloud watch
 
 Create an IAM policy and execution role for your Lambda function
+
 1.    Create an IAM policy using the JSON policy editor. Copy and paste the following JSON policy document into the policy editor:
 
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:Start*",
-        "ec2:Stop*"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
+
 2.    Create an IAM role for Lambda.
 
 Important: When attaching a permissions policy to Lambda, make sure that you choose the IAM policy that you just created.
@@ -73,16 +53,23 @@ In step 5, copy and paste the following code into the editor pane in the code ed
 Example function code to start EC2 instances
 
 import boto3
+
 region = 'us-west-1'
+
 instances = ['i-12345cb6de4f78g9h', 'i-08ce9b2d7eccf6d26']
+
 ec2 = boto3.client('ec2', region_name=region)
 
 def lambda_handler(event, context):
-    ec2.start_instances(InstanceIds=instances)
-    print('started your instances: ' + str(instances))
+
+ec2.start_instances(InstanceIds=instances)
+
+print('started your instances: ' + str(instances))
+
 Important: For region and instances, use the same values that you used for the code to stop your EC2 instances.
 
 Test your Lambda functions
+
 1.    Open the Lambda console, and then choose Functions.
 
 2.    Choose one of the functions that you created.
@@ -102,6 +89,7 @@ Note: Don't change the JSON code for the test event. The function doesn't use it
 8.    Repeat steps 1-7 for the other function that you created.
 
 Check the status of your EC2 instances
+
 AWS Management Console
 
 You can check the status of your EC2 instances before and after testing to confirm that your functions work as expected.
@@ -120,9 +108,14 @@ You can use CloudTrail to check for events to confirm that the Lambda function s
 
 5.     In the search bar, enter StartInstances to review the results.
 
+<img width="991" alt="Screenshot 2023-06-08 at 19 03 24" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/09dbc199-4170-4fb2-95af-21d52b719193">
+
+<img width="1032" alt="Screenshot 2023-06-08 at 19 03 42" src="https://github.com/Mamiololo01/Automate-ec2-instance-with-Lambda-and-cloudwatch/assets/67044030/f54d635f-1753-4702-973f-fb60328ce0ef">
+
 If there are no results, then the Lambda function didn't stop or start the EC2 instances.
 
 Create EventBridge rules that run your Lambda functions
+
 1.    Open the EventBridge console.
 
 2.    Select Create rule.
@@ -134,8 +127,11 @@ Create EventBridge rules that run your Lambda functions
 5.    For Schedule pattern, choose Recurring schedule. Complete one of the following steps:
 
 Under Schedule pattern, for Occurrence, choose Recurring schedule. Then complete one of the following steps:
+
 When Schedule type is Rate-based schedule, for Rate expression, enter a rate value and choose an interval of time in minutes, hours, or days.
+
 When Schedule type is Cron-based schedule, for Cron expression, enter an expression that tells Lambda when to stop your instance. For information on expression syntax, see Schedule expressions for rules.
+
 Note: Cron expressions are evaluated in UTC. Make sure that you adjust the expression for your preferred time zone.
 
 6.    In Select targets, choose Lambda function from the Target dropdown list.
@@ -148,5 +144,7 @@ Note: Cron expressions are evaluated in UTC. Make sure that you adjust the expre
 
 Enter a name for your rule, such as "StartEC2Instances".
 (Optional) In Description, enter a description for your rule, such as "Starts EC2 instances every morning at 7 AM."
+
 In step 5, for Cron expression, enter an expression that tells Lambda when to start your instances.
+
 In step 7, for Function, choose the function that starts your EC2 instances.
